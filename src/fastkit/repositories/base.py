@@ -1,11 +1,9 @@
 from typing import Type, Generic, List, Dict, Optional, Any
-from fastapi import Depends
 from fastapi.exceptions import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from src.fastkit.utils.base import T, UnitOfWork
 from src.fastkit.filters.base import FilterBase
-from src.middleware.engine import get_async_session
 
 class BaseRepository(Generic[T]):
     """

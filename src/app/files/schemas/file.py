@@ -1,5 +1,13 @@
+from enum import Enum
 from pydantic import BaseModel
-from typing import Optional, Dict
+
+
+
+class ALLOWED_CONTENT_TYPES(str, Enum):
+    IMAGE_JPEG = "image/jpeg"
+    IMAGE_PNG = "image/png"
+    IMAGE_GIF = "image/gif"
+    APPLICATION_PDF = "application/pdf"
 
 
 class FileCreate(BaseModel):
