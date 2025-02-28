@@ -73,3 +73,9 @@ class BaseRepository(Generic[T]):
 
             await self.uow.db.delete(entity)
             return entity
+        
+    async def create_many(self, entities: list[T]):
+        """Создаёт несколько записей в БД за один раз с использованием UnitOfWork."""
+        async with self.uow.transaction():
+            self.uow.db.add_all(entities)
+            await self.uow.db.flush()

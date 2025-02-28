@@ -1,5 +1,5 @@
 from typing import Type
-from fastapi import Depends, UploadFile, File as FileBody, HTTPException
+from fastapi import Depends, UploadFile, File as FileBody, HTTPException, Response
 from sqlalchemy.ext.asyncio import AsyncSession
 from src.middleware.engine import get_async_session
 from src.fastkit.routers.base import BaseRouter
@@ -28,3 +28,14 @@ class FileRouter(BaseRouter[File, FileCreate, FileRead]):
             
             service = self.service_cls(db_session)
             return await service.upload(file)
+        
+        @self.router.get("/{file_id}/decoded")
+        async def get_decoded_file(
+            file_id: int,
+            db_session: AsyncSession = Depends(get_async_session),
+        ) -> Response:
+            """
+            Retrieve a decoded file by ID.
+            """
+            service = self.service_cls(db_session)
+            return await service.get_decoded_file(file_id)

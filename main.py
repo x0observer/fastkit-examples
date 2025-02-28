@@ -35,12 +35,12 @@ async def startup_event():
     """
     await init_db()
 
-# Main entry point for running the app
-if __name__ == "__main__":
-    # Run the application using Uvicorn
-    uvicorn.run(app,
-                host=SERVER_HOST,
-                port=SERVER_PORT,
-                reload=RELOAD,
-                timeout_keep_alive=TIMEOUT_KEEP_ALIVE
-                )
+# # Main entry point for running the app
+# if __name__ == "__main__":
+#     # Run the application using Uvicorn
+#     uvicorn.run(app,
+#                 host=SERVER_HOST,
+#                 port=SERVER_PORT,
+#                 reload=RELOAD,
+#                 timeout_keep_alive=TIMEOUT_KEEP_ALIVE
+#                 )

@@ -31,7 +31,6 @@ class FileUploadResponse(BaseModel):
     id: int
     filename: str
     content_type: str
-    base64_data: str
 
     class Config:
         from_attributes = True
