@@ -1,17 +1,15 @@
 
 
-from fastapi import Depends, Request, HTTPException, UploadFile, File as FileBody
+
 from typing import List, Optional
-from sqlalchemy.exc import SQLAlchemyError
+from fastapi import UploadFile
 from src.middleware.engine import AsyncSession
 from src.fastkit.services.base import BaseService
+from src.fastkit.utils.serverless import serverless, serviceable, Provide
+from src.app.files.service import FileService
 from .repository import TripRepository, TripImageRepository
 from .models.trip import Trip, TripImage
 from .schemas.trip import TripCreate, TripResponse
-from src.app.files.register import get_file_service
-from src.app.files.service import FileService
-from src.app.files.repository import FileRepository
-from src.fastkit.utils.serverless import serverless, serviceable, Provide
 
 @serverless([FileService])
 class TripService(BaseService[Trip]):
