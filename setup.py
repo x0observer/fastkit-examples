@@ -23,6 +23,7 @@ SERVER_PORT = int(os.environ["SERVER_PORT"])
 RELOAD = os.environ["RELOAD"] == "True"
 TIMEOUT_KEEP_ALIVE = int(os.environ["TIMEOUT_KEEP_ALIVE"])
 
+FULL_SERVER_URL = f"http://{SERVER_HOST}:{SERVER_PORT}"
 
 SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://%s:%s@%s:%s/%s" % (
     DATABASE_USER,

@@ -15,6 +15,7 @@ class BaseRepository(Generic[T]):
         print(f"🔍 BaseRepository -> db_session type: {type(db_session)}")
         self.model = model
         self.uow = UnitOfWork(db_session)
+        print(f"🔍 BaseRepository -> uow.db type: {type(self.uow.db)}")
 
     async def get_by_id(self, entity_id: int) -> Optional[T]:
         """Retrieve an entity by its ID."""

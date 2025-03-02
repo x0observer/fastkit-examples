@@ -50,3 +50,4 @@ class BaseService(Generic[T]):
     async def filter(self, filters: FilterBase) -> List[T]:
         """Apply filters and return the filtered result set."""
         return await self.repository.filter(filters)
+

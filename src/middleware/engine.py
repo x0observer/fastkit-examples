@@ -3,7 +3,6 @@ from typing import AsyncGenerator
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine, AsyncSession
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlmodel import SQLModel
 from setup import settings
 
 
@@ -26,13 +25,10 @@ async def init_db() -> None:
     Initialize the database by dropping and recreating tables.
     """
     async with engine.begin() as connection:
-        # await connection.run_sync(SQLModel.metadata.drop_all)
         await connection.run_sync(Base.metadata.create_all)
 
 # Asynchronous Session Configuration
 async_session_factory = sessionmaker(
-    # autocommit=False,
-    # autoflush=False, 
     bind=engine, 
     expire_on_commit=False,
     class_=AsyncSession,
@@ -40,12 +36,9 @@ async_session_factory = sessionmaker(
 
 
 async_session_local = sessionmaker(
-    # autocommit=False,
-    # autoflush=False,
     bind=engine,
     expire_on_commit=False,
     class_=AsyncSession,
-    # execution_options={"compiled_cache": None}
 )
 
 

@@ -20,7 +20,6 @@ class TripRouter(BaseRouter[Trip, TripCreate, TripRead]):
 
         @self.router.post("/create-with-images", response_model=TripResponse, status_code=status.HTTP_201_CREATED)
         async def create_with_images(
-            request: Request,
             trip_data: TripCreate = Depends(),
             images: List[UploadFile] = File(None),
             db_session: AsyncSession = Depends(get_async_session),
@@ -32,6 +31,6 @@ class TripRouter(BaseRouter[Trip, TripCreate, TripRead]):
             service = self.service_cls(db_session)
 
             # Создаём поездку с изображениями
-            trip = await service.create_with_images(request=request, trip_data=trip_data, images=images)
+            trip = await service.create_with_images(trip_data=trip_data, images=images)
 
             return TripResponse.model_validate(trip, from_attributes=True)
