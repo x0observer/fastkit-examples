@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.middleware.engine import init_db
 
 from src.app.files.register import file_router
-from src.app.trip.register import trip_router
+from src.app.trips.register import trip_router
 
 
 app = FastAPI(

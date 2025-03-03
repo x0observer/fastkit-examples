@@ -5,9 +5,9 @@ from fastapi import UploadFile, File, Depends, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from src.fastkit.routers.base import BaseRouter
 from src.middleware.engine import get_async_session
-from src.app.trip.models.trip import Trip
-from src.app.trip.schemas.trip import TripCreate, TripRead, TripResponse
-from src.app.trip.service import TripService
+from src.app.trips.models.trip import Trip
+from src.app.trips.schemas.trip import TripCreate, TripRead, TripResponse
+from src.app.trips.service import TripService
 
 class TripRouter(BaseRouter[Trip, TripCreate, TripRead]):
     """Маршрут для работы с поездками."""

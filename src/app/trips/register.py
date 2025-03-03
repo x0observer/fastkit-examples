@@ -1,6 +1,6 @@
 
-from src.app.trip.service import TripService
-from src.app.trip.router import TripRouter
+from src.app.trips.service import TripService
+from src.app.trips.router import TripRouter
 
 
 # file_service = get_file_service()  # ...

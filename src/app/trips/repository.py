@@ -1,5 +1,5 @@
 from src.fastkit.repositories.base import BaseRepository
-from src.app.trip.models.trip  import Trip, TripImage
+from src.app.trips.models.trip  import Trip, TripImage
 from sqlalchemy.ext.asyncio import AsyncSession
 
 

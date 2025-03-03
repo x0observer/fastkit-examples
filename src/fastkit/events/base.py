@@ -1,6 +1,5 @@
 from typing import Any, Dict, List, Optional, Type, Generic, TypeVar
 from functools import wraps
-
 from abc import ABC, abstractmethod
 from src.fastkit.routers.base import T  # Import the BaseRouter class from your routers.
 
